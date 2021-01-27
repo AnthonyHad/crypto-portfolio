@@ -1,5 +1,13 @@
 <h1>Here are all your investments</h1>
 <h3> Happy HODL'ING !</h3>
-<% @investments.each do |investment| %>
- <%= investment.coin_price %>
- <% end %>
+
+<ul>
+  <% @investments.each do |investment| %>
+  <li><%= investment.coin_name %></li>
+  <li><%= "#{investment.coin_price}$" %></li>
+  <li><%= "#{investment.quantity}BTC" %></li>
+   <% end %>
+ </ul>
+
+ <%= link_to "Add a transaction", new_investment_path %>
+
