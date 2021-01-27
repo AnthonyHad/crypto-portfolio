@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_160310) do
+ActiveRecord::Schema.define(version: 2021_01_27_144021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 2021_01_22_160310) do
     t.float "last_24h"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "open"
+    t.float "close"
+    t.float "high"
+    t.float "low"
+    t.float "volume"
+    t.float "market_cap"
   end
 
   create_table "investments", force: :cascade do |t|
