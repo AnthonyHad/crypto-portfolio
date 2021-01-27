@@ -9,3 +9,5 @@
 Anthony = User.create(name: "Anthony", email: "anthony@crypto.com", password: "secret")
 
 Bitcoin = Coin.create(name: "Bitcoin", open: 34312.34, close: 30127.34, high: 35000, low: 29300, volume: 200000000, market_cap: 503000000)
+
+Investment_1 = Investment.create(user_id: 1, coin_id: 1, coin_price: 22000, quantity: 0.001234, coin_name: "Bitcoin")

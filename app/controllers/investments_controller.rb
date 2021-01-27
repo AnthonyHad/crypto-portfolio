@@ -1,6 +1,8 @@
 class InvestmentsController < ApplicationController
 
   def index
+    @investments = current_user.investments
+
   end
 
   def new
