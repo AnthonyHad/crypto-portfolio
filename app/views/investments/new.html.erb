@@ -3,7 +3,7 @@
     <div class="col-8 new-form">
       <h1 class="text-center">Add a Transaction</h1>
         <%= simple_form_for(@investment) do |f| %>
-          <%= f.input :coin_name, placeholder: "Coin" %>
+          <%= f.association :coin, placeholder: "Coin" %>
           <%= f.input :coin_price, placeholder: "Price Bought at" , as: :float %>
           <%= f.input :quantity, placeholder: "Quantity", as: :float %>
           <%= f.button :submit, "Add Transaction", class: "btn btn-success submit-button" %>
