@@ -9,9 +9,9 @@ class InvestmentsController < ApplicationController
   end
 
   def create
-    @investment = Investment.new(params[:investment])
+    @investment = Investment.new(investment_params)
     @investment.user = current_user
-    if @ginvestment.save
+    if @investment.save
       redirect_to investments_path, notice: "Transaction Successfully added!"
     else
       render :new
@@ -25,6 +25,12 @@ class InvestmentsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def investment_params
+    params.require(:investment).permit(:coin_id, :coin_price, :quantity)
   end
 
 end
