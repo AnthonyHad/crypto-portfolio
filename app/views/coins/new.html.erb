@@ -1,0 +1,17 @@
+<div class="container mt-3">
+  <div class="row d-flex justify-content-center form-container">
+    <div class="col-8 new-form">
+      <h1 class="text-center">Add a Transaction</h1>
+        <%= simple_form_for(@coin) do |f| %>
+          <%= f.input :name, placeholder: "Coin Name" %>
+          <%= f.input :open, placeholder: "Open Price" , as: :float %>
+          <%= f.input :close, placeholder: "Close Price", as: :float %>
+          <%= f.input :high, placeholder: "Day High", as: :float %>
+          <%= f.input :low, placeholder: "Day Low", as: :float %>
+          <%= f.input :volume, placeholder: "Volume", as: :float %>
+          <%= f.input :market_cap, placeholder: "Market Cap", as: :float %>
+          <%= f.button :submit, "Add Coin", class: "btn btn-success submit-button" %>
+        <% end %>
+    </div>
+  </div>
+</div>

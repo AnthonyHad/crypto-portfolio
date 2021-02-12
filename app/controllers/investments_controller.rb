@@ -32,5 +32,5 @@ class InvestmentsController < ApplicationController
   def investment_params
     params.require(:investment).permit(:coin_id, :coin_price, :quantity)
   end
-
 end
+
