@@ -1,15 +1,13 @@
 <h1>Here are all your investments</h1>
 <h3> Happy HODL'ING !</h3>
 
-<!-- At some point we need to refactor (send logic to model or controller) -->
-
 <ul>
   <% bitcoin_array = [] %>
   <% @investments.each do |investment| %>
   <li><%= investment.coin.name %></li>
   <li><%= "#{investment.coin_price}$" %></li>
-  <li><%= "#{investment.quantity}BTC" %></li>
-  <% if investment.coin.name = 'Bitcoin' %>
+  <li><%= "#{investment.quantity}" %></li>
+  <% if investment.coin.name == 'Bitcoin' %>
     <% bitcoin_array << investment.coin_price %>
   <% end  %>
    <% end %>
@@ -18,26 +16,25 @@
 
  <%= link_to "Add a transaction", new_investment_path %>
 
-<!--
-Add to Coin the "ID" to the schema, and fetch it from the API
-Use a method (uniq method?) to get all individual coin names or ids
-Iterate through the investments
-compare the investment coin to the array wirh the individual coin and add the
-correct prices for each coin
+<% c_names = [] %>
+<% @investments.each do |investement| %>
+<% c_names << investement.coin.name %>
+<% end  %>
+<% o_names =  c_names.uniq %>
+<%= o_names %>
 
-addding = {}
-use uniq =[ all coins ].each ! coin !
-  adding[coin] = {id: coin.ticker, value: 0}
+<% user_investments = {} %>
+<% o_names.each do |name| %>
+<% user_investments[name] = {} %>
+<% end %>
+<%= user_investments %>
 
-
-{
-  Bitcoin:{
-    id: BTC,
-    total: 0
-  },
-  Ethereum: {
-    id:
-  }
-}
-
- -->
+<% user_investments.each do |key, value| %>
+ <% @investments.each do |investment| %>
+    <% if investment.coin.name == key %>
+      <%value[:price] = []  %>
+      <% value[:price]<< investment.coin_price %>
+    <% end %>
+  <% end %>
+<% end %>
+<%= user_investments %>

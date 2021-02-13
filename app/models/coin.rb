@@ -1,5 +1,5 @@
 class Coin < ApplicationRecord
-  # belongs_to :investment
+  belongs_to :investment, optional: true
 
   def self.coin_exists?(coin_name)
     coins = Coin.all
