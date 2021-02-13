@@ -7,15 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Clearing DB"
-User.destroy_all
-Coin.destroy_all
 Investment.destroy_all
+Coin.destroy_all
+User.destroy_all
 puts"done!"
 
 puts"Seeding!"
 Anthony = User.create(name: "Anthony", email: "anthony@crypto.com", password: "secret")
 
-Bitcoin = Coin.create(name: "Bitcoin", open: 34312.34, close: 30127.34, high: 35000, low: 29300, volume: 200000000, market_cap: 503000000)
+Coin.create!(name: "Bitcoin", open: 34312.34, close: 30127.34, high: 35000, low: 29300, volume: 200000000, market_cap: 503000000)
 
-Investment_1 = Investment.create(user_id: 3, coin_id: 6, coin_price: 22000, quantity: 0.001234, coin_name: "Bitcoin")
+Coin.create!(name: "Ethereum", open: 1700.34, close: 1723.12, high: 1750.1, low: 1700.08, volume: 40000000, market_cap: 300000000)
+
 puts "done!"
