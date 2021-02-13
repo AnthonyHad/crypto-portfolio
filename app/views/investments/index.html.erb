@@ -1,8 +1,6 @@
 <h1>Here are all your investments</h1>
 <h3> Happy HODL'ING !</h3>
 
-
-
 <ul>
   <% bitcoin_array = [] %>
   <% @investments.each do |investment| %>
@@ -18,7 +16,6 @@
 
  <%= link_to "Add a transaction", new_investment_path %>
 
-
 <% c_names = [] %>
 <% @investments.each do |investement| %>
 <% c_names << investement.coin.name %>
@@ -32,7 +29,6 @@
 <% end %>
 <%= user_investments %>
 
-
 <% user_investments.each do |key, value| %>
  <% @investments.each do |investment| %>
     <% if investment.coin.name == key %>
@@ -42,4 +38,3 @@
   <% end %>
 <% end %>
 <%= user_investments %>
-

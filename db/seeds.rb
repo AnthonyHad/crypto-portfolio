@@ -13,7 +13,12 @@ User.destroy_all
 puts"done!"
 
 puts"Seeding!"
-Anthony = User.create(name: "Anthony", email: "anthony@crypto.com", password: "secret")
+
+anthony = User.create!(name: "Anthony", email: "anthony@crypto.com", password: "secret")
+puts "Created Anthony"
+
+# Investment_1 = Investment.create!(user_id: anthony.id, coin_id: bitcoin.id, coin_price: 22000, quantity: 0.001234)
+# puts "Created one investment"
 
 Coin.create!(name: "Bitcoin", open: 34312.34, close: 30127.34, high: 35000, low: 29300, volume: 200000000, market_cap: 503000000)
 
