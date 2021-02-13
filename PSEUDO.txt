@@ -4,15 +4,23 @@ What do I want to do?
 I want to create all coins in our db
 I want to check if there are new coins, and create them if there are
   [✅] I need to update schema (add API_ID, symbol, type and rank)
-  [ ] I need to fetch the data in the seeds and work the data
-  [ ] I need to check if the coin already exist
-  [ ] If the coin does not exist, I need to create it
+  [✅] I need to fetch the data in the seeds and work the data
+  [✅] I need to check if the coin already exist
+  [✅] If the coin does not exist, I need to create it
+
+I want to update the ranking of all coins
+  [✅] I need to be able to compare the coins by name (loop inside of a loop)
+  [✅] Update ranking of all coins.
+  [✅] If a coin is no longer active, its ranking will be 0
 
 I want to display top 10 coins in our index
-I want to update the price info of top 10 coins daily
-  [ ] I need to look which ones are the top 10 coins
-  [ ] I need to fetch latest market data for the top 10 coins
+  [✅] I need to look which ones are the top 10 coins
   [ ] I need to display those top 10 coins
+
+I want to update the price info of top 10 coins daily
+  [✅] I need to fetch latest market data for the top 10 coins
+  [✅] I need to find the correct coin and update its market data field values
+  [ ] I need to find a way to automate this daily
 
 I want to give the user the chance of looking for a specific coin latest info
   [ ] I need to work search functionality through all our coins
@@ -20,23 +28,3 @@ I want to give the user the chance of looking for a specific coin latest info
   [ ] I need to set up a function that fetches latest market info data and updates coin
 
 
-
-
-EXTRA
-# What do I want to do?
-# I want to create the top 10 ranked cryptocoins in our db
-  # What to I need for that?
-    # name, open, close, high, low, volume and market cap
-# First I need to get the IDs to be able to make the OHLC call
-# Once I have the IDs I can store them (This only needs to happen once)
-# 4969 coins. Do I only want to call only the top 10 at the beggining or
-# do I want it to be more dynamic?
-# What happens if you want to make an investment of a non-top 10 coin?
-# Can we make a functionality that calls the API for the IDs and checks if there
-# is a coin that doesn´t already exist. Then it will only pull the general info
-# of the new coins and create them (general info and market info)
-# We can only display top 10 coins. So we would need to constantly update the top 10 rank
-# And we would also have to update the market info daily. That way we have the latest
-# Market data for all coins, and the user can use it.
-# We would need to include a search functionality for the coins when the user
-# is going to create an investment
