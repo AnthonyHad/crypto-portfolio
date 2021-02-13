@@ -6,16 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "Clearing DB"
-User.destroy_all
-Coin.destroy_all
+puts "Clearing DB!"
 Investment.destroy_all
-puts"done!"
+User.destroy_all
+puts"Destroyed users and investments"
 
 puts"Seeding!"
-Anthony = User.create(name: "Anthony", email: "anthony@crypto.com", password: "secret")
 
-Bitcoin = Coin.create(name: "Bitcoin", open: 34312.34, close: 30127.34, high: 35000, low: 29300, volume: 200000000, market_cap: 503000000)
+anthony = User.create!(name: "Anthony", email: "anthony@crypto.com", password: "secret")
+puts "Created Anthony"
 
-Investment_1 = Investment.create(user_id: 3, coin_id: 6, coin_price: 22000, quantity: 0.001234, coin_name: "Bitcoin")
+bitcoin = Coin.create!(name: "Bitcoin", open: 34312.34, close: 30127.34, high: 35000, low: 29300, volume: 200000000, market_cap: 503000000)
+puts "Created Bitcoin"
+
+# Investment_1 = Investment.create!(user_id: anthony.id, coin_id: bitcoin.id, coin_price: 22000, quantity: 0.001234)
+# puts "Created one investment"
+
 puts "done!"
