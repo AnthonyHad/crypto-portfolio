@@ -30,10 +30,12 @@
 <%= user_investments %>
 
 <% user_investments.each do |key, value| %>
+<%value[:price] = []  %>
+<% value[:quantity]= [] %>
  <% @investments.each do |investment| %>
     <% if investment.coin.name == key %>
-      <%value[:price] = []  %>
       <% value[:price]<< investment.coin_price %>
+      <% value[:quantity] << investment.quantity  %>
     <% end %>
   <% end %>
 <% end %>

@@ -41,7 +41,6 @@ end
 
 def get_inactive_coins(active_coins)
   coins = Coin.all.map { |coin| coin.name }
-  p coins
   inactive_coins = []
 
   active_coins.each do |active_coin|
@@ -49,7 +48,6 @@ def get_inactive_coins(active_coins)
   end
 
   puts "Found #{inactive_coins.count} inactive coins"
-  p inactive_coins
   return inactive_coins # this returns an array of inactive coin names strings
 end
 
@@ -100,7 +98,7 @@ end
 
 puts "Clearing DB"
 Investment.destroy_all
-# Coin.destroy_all # We don't need to delete all coins after they are created. But if we do the logic works the same.
+Coin.destroy_all # We don't need to delete all coins after they are created. But if we do the logic works the same.
 User.destroy_all
 puts"Done! Deleted all investments and users"
 
