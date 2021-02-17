@@ -37,14 +37,17 @@ class InvestmentsController < ApplicationController
   def investment_aggregation
     coin_names = []
     @user_investments = {}
+    total_invested = 0
     @investments.each do |investement|
       coin_names << investement.coin.name
     end
     s_names =  coin_names.uniq
 
+
     s_names.each do |name|
       @user_investments[name] = {}
     end
+
     @user_investments.each do |key, value|
       value[:price] = []
       value[:quantity]= []
@@ -52,9 +55,23 @@ class InvestmentsController < ApplicationController
           if investment.coin.name == key
             value[:price]<< investment.coin_price
             value[:quantity] << investment.quantity
+            value[:closing_price] = investment.coin.close
           end
         end
       end
+
+    #   @user_investments.each do |key, value|
+    #     @investments.each do |investment|
+    #       if investment.coin.name == key && value[:price].size == value[:quantity].size
+    #         value[:price].each do |price|
+    #         value[:quantity].each do |quantity|
+    #           total_invested += price.to_f * quantity.to_f
+    #           value[:total_invested] = total_invested
+    #         end
+    #       end
+    #     end
+    #   end
+    # end
   return @user_investments
   end
 end

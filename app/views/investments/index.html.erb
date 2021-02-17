@@ -1,14 +1,25 @@
 <h1>Here are all your investments</h1>
 <h3> Happy HODL'ING !</h3>
 
-<%= link_to "Add a transaction", new_investment_path %>
+<div>
+  <h2>Portfolio</h2>
+  <%= link_to "Add a transaction", new_investment_path %>
+</div>
 
-<%=  @user_investments %>
+
+<%= @user_investments %>
+<div>
+<h3>Your Assets</h3>
   <%@user_investments.each do |key, value| %>
+  <p>Name</p>
     <%= key %>
-    <%amount_invested = value[:price].sum  %>
+    <% amount_invested = value[:price].sum  %>
     <% total_quantity_owned = value[:quantity].sum  %>
     <% value[:quantity].size == 1 ? average_price_bought_at = amount_invested : average_price_bought_at = amount_invested/total_quantity_owned %>
-    <%= average_price_bought_at  %>
-    <%=  total_quantity_owned %>
+    <%= average_price_bought_at%>
+    <%= total_quantity_owned %>
+    <%= value[:closing_price] %>
  <% end %>
+ </div>
+
+
