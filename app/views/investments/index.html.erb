@@ -1,42 +1,41 @@
 <h1>Here are all your investments</h1>
 <h3> Happy HODL'ING !</h3>
 
-<ul>
-  <% bitcoin_array = [] %>
-  <% @investments.each do |investment| %>
-  <li><%= investment.coin.name %></li>
-  <li><%= "#{investment.coin_price}$" %></li>
-  <li><%= "#{investment.quantity}" %></li>
-  <% if investment.coin.name == 'Bitcoin' %>
-    <% bitcoin_array << investment.coin_price %>
-  <% end  %>
+
+<div class= "d-flex justify-content-between">
+  <h2>Portfolio</h2>
+  <%= link_to "Add a transaction", new_investment_path %>
+</div>
+
+
+<%= @user_investments %>
+<h3>Your Assets</h3>
+<table class = "table">
+  <thead>
+    <tr>
+      <th scope="col" >Name</th>
+      <th scope="col">Closing Price</th>
+      <th scope="col">Holdings</th>
+      <th scope="col">Average Price Bought at</th>
+      <th scope="col">Profit/Loss</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <%@user_investments.each do |key, value| %>
+      <th scope ="row"><%= key %></th>
+      <% total_quantity_owned = value[:quantity].sum  %>
+      <% average_price_bought_at = value[:total_invested] / total_quantity_owned %>
+      <td><%= "#{value[:closing_price].to_f.truncate(3)}$" %></td>
+      <td><%= "#{value[:total_invested]}$ #{total_quantity_owned} #{value[:symbol]}" %></td>
+      <td><%= "#{average_price_bought_at.truncate(3)}$"%></td>
+      <% profit_percentage = ((value[:closing_price].to_f - average_price_bought_at) / average_price_bought_at) * 100  %>
+      <td><%=  profit_percentage.positive? ? "Up #{profit_percentage.abs().truncate(2)}%" : "Down #{profit_percentage.abs().truncate(2)}%" %></td>
+    </tr>
    <% end %>
-   <%= bitcoin_array %>
- </ul>
+ </tbody>
 
- <%= link_to "Add a transaction", new_investment_path %>
 
-<% c_names = [] %>
-<% @investments.each do |investement| %>
-<% c_names << investement.coin.name %>
-<% end  %>
-<% o_names =  c_names.uniq %>
-<%= o_names %>
 
-<% user_investments = {} %>
-<% o_names.each do |name| %>
-<% user_investments[name] = {} %>
-<% end %>
-<%= user_investments %>
 
-<% user_investments.each do |key, value| %>
-<%value[:price] = []  %>
-<% value[:quantity]= [] %>
- <% @investments.each do |investment| %>
-    <% if investment.coin.name == key %>
-      <% value[:price]<< investment.coin_price %>
-      <% value[:quantity] << investment.quantity  %>
-    <% end %>
-  <% end %>
-<% end %>
-<%= user_investments %>
