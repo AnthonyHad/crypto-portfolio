@@ -5,6 +5,11 @@ class InvestmentsController < ApplicationController
     investment_aggregation
   end
 
+
+  def show
+
+  end
+
   def new
     @investment = Investment.new
   end
@@ -38,8 +43,8 @@ class InvestmentsController < ApplicationController
     coin_names = []
     @user_investments = {}
     total_invested = 0
-    @investments.each do |investement|
-      coin_names << investement.coin.name
+    @investments.each do |investment|
+      coin_names << investment.coin.name
     end
     s_names =  coin_names.uniq
 
@@ -56,22 +61,11 @@ class InvestmentsController < ApplicationController
             value[:price]<< investment.coin_price
             value[:quantity] << investment.quantity
             value[:closing_price] = investment.coin.close
+            value[:symbol] = investment.coin.symbol
+            value[:total_invested] = value[:price].zip(value[:quantity]).map{ |x,y| x * y}.sum
           end
         end
       end
-
-    #   @user_investments.each do |key, value|
-    #     @investments.each do |investment|
-    #       if investment.coin.name == key && value[:price].size == value[:quantity].size
-    #         value[:price].each do |price|
-    #         value[:quantity].each do |quantity|
-    #           total_invested += price.to_f * quantity.to_f
-    #           value[:total_invested] = total_invested
-    #         end
-    #       end
-    #     end
-    #   end
-    # end
   return @user_investments
   end
 end
