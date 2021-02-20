@@ -32,6 +32,7 @@
       <td><%= "#{average_price_bought_at.truncate(3)}$"%></td>
       <% profit_percentage = ((value[:closing_price].to_f - average_price_bought_at) / average_price_bought_at) * 100  %>
       <td><%=  profit_percentage.positive? ? "Up #{profit_percentage.abs().truncate(2)}%" : "Down #{profit_percentage.abs().truncate(2)}%" %></td>
+      <td><%= link_to "Show Transactions", investment_path(value[:coin_id]) %></td>
     </tr>
    <% end %>
  </tbody>
