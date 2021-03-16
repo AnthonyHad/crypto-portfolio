@@ -25,9 +25,17 @@ class InvestmentsController < ApplicationController
   end
 
   def edit
+    @investment = Investment.find(params[:id])
   end
 
   def update
+    @investment = Investment.find(params[:id])
+    @investment.update(investment_params)
+    if @investment.save!
+      redirect_to investment_path(@investment.coin_id)
+    else
+      render :new
+    end
   end
 
   def destroy

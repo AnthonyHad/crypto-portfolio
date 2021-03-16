@@ -15,6 +15,7 @@
       <th scope ="row"><%= investment.created_at %></th>
       <td><%= investment.coin_price %></td>
       <td><%= investment.quantity %></td>
+      <td><%= link_to "Edit Transaction", edit_investment_path(investment.id)  %></td>
     </tr>
    <% end %>
  </tbody>
