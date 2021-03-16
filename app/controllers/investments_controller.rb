@@ -8,6 +8,9 @@ class InvestmentsController < ApplicationController
 
   def show
     @investment = Investment.where(coin_id: params[:coin_id])
+    if @investment.empty?
+      redirect_to investments_path
+    end
   end
 
   def new
@@ -39,8 +42,11 @@ class InvestmentsController < ApplicationController
   end
 
   def destroy
-
+    @investment = Investment.find(params[:id])
+    @investment.destroy
+    redirect_to investment_path(@investment.coin_id)
   end
+
 
   private
 
