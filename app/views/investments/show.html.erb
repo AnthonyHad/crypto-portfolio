@@ -15,7 +15,7 @@
       <th scope ="row"><%= investment.created_at %></th>
       <td><%= investment.coin_price %></td>
       <td><%= investment.quantity %></td>
-      <td><%= link_to "Edit Transaction", edit_investment_path(investment.id)  %></td>
+      <td><%= link_to "Edit", edit_investment_path(investment.id)%> <%= link_to "Delete", investment_path(investment.id), method: :delete, data: { confirm: "Are you sure?"}%></td>
     </tr>
    <% end %>
  </tbody>
