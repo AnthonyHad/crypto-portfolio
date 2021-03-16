@@ -11,7 +11,7 @@
   <tbody>
     <tr>
     <%@investment.each do |investment| %>
-      <% name = investment.coin.name %>
+      <%= name = investment.coin.name %>
       <th scope ="row"><%= investment.created_at %></th>
       <td><%= investment.coin_price %></td>
       <td><%= investment.quantity %></td>
