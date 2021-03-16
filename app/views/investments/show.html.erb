@@ -1,0 +1,20 @@
+
+<table class = "table">
+  <thead>
+    <tr>
+      <th scope="col" >Date Bought at</th>
+      <th scope="col">Price</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <%@investment.each do |investment| %>
+      <% name = investment.coin.name %>
+      <th scope ="row"><%= investment.created_at %></th>
+      <td><%= investment.coin_price %></td>
+      <td><%= investment.quantity %></td>
+    </tr>
+   <% end %>
+ </tbody>

@@ -7,7 +7,7 @@ class InvestmentsController < ApplicationController
 
 
   def show
-
+    @investment = Investment.where(coin_id: params[:coin_id])
   end
 
   def new
@@ -31,6 +31,7 @@ class InvestmentsController < ApplicationController
   end
 
   def destroy
+
   end
 
   private
@@ -48,7 +49,6 @@ class InvestmentsController < ApplicationController
     end
     s_names =  coin_names.uniq
 
-
     s_names.each do |name|
       @user_investments[name] = {}
     end
@@ -56,13 +56,16 @@ class InvestmentsController < ApplicationController
     @user_investments.each do |key, value|
       value[:price] = []
       value[:quantity]= []
+      value[:investment_id] = []
        @investments.each do |investment|
           if investment.coin.name == key
+            value[:investment_id] << investment.id
             value[:price]<< investment.coin_price
             value[:quantity] << investment.quantity
             value[:closing_price] = investment.coin.close
             value[:symbol] = investment.coin.symbol
             value[:total_invested] = value[:price].zip(value[:quantity]).map{ |x,y| x * y}.sum
+            value[:coin_id] = investment.coin.id
           end
         end
       end
