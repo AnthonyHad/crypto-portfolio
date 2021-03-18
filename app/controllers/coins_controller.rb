@@ -1,6 +1,7 @@
 class CoinsController < ApplicationController
   def index
     @coins = Coin.all
+    @top_10 = Coin.find_top_ten
   end
 
 
