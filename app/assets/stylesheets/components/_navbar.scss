@@ -28,6 +28,7 @@
   }
 }
 
+
 .navbar-brand {
   display: flex;
   align-items: center;
@@ -36,6 +37,7 @@
     font-weight: bold;
     color: $text-white;
     font-size: 20px;
+    margin-bottom: 0px;
   }
 }
 
@@ -55,4 +57,8 @@
     background-color: transparent;
     color: $secondary-orange;
   }
+}
+
+.dropdown {
+  cursor: pointer;
 }
