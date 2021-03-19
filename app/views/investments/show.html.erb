@@ -13,7 +13,7 @@
   <tbody>
     <tr class="cards-border-invest">
     <%@investment.each do |investment| %>
-      <h1> <%= investment.coin.name %></h1>
+      <h1 class="crypto-asset-name show-name"> <%= investment.coin.name %></h1>
       <th scope ="row"><%= investment.created_at.strftime("%a, %B %d %T %P") %></th>
       <td><%= "#{number_with_precision(investment.coin_price, precision: 2, :delimiter => ',')}$" %></td>
       <td><%= "#{number_with_precision(investment.quantity, precision: 4, :delimiter => ',')} #{investment.coin.symbol}"%></td>
@@ -28,4 +28,8 @@
    <% end %>
  </tbody>
 </table>
+
+<div class="d-flex mr-2 mt-4 flex-row justify-content-center ">
+  <%= link_to "Back to Investments", investments_path, class: "btn-main"%>
+</div>
  </div>

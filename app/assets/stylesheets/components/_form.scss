@@ -1,0 +1,67 @@
+.form-container {
+  background-color: $main-blue;
+  border-radius: 24px;
+  border-style: solid;
+  border-color: $secondary-orange;
+  border-width: 2px;
+  padding: 48px;
+}
+
+
+.new-form {
+  border-radius: 10px;
+    .form-control {
+    border: none;
+    border-radius: 10px;
+    background-color: $background-color;
+    color: $text-white;
+   }
+}
+
+
+.form-dropdown {
+  background-color: $main-blue;
+  border-style: solid;
+  border-color: $secondary-orange;
+  border-width: 2px;
+
+}
+
+
+
+.select2-container--default .select2-selection--single {
+  background-color: $background-color;
+  border: none;
+  border-radius: 10px;
+  background-color: $background-color;
+  color: $text-white;
+
+}
+
+.select2-search--dropdown {
+  border: none;
+  border-radius: 10px;
+  background-color: $background-color;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+
+  border-radius: 10px;
+  border-color: $secondary-orange;
+  color: $text-white;
+  background-color: $background-color;
+}
+
+.select2-container--open .select2-dropdown--below {
+  background-color: $background-color;
+  border: none;
+
+  background-color: $background-color;
+  color: $text-white;
+}
+
+.select2-container--default .select2-results > .select2-results__options {
+  background-color: $background-color;
+  border: none;
+  border-radius: 10px;
+}

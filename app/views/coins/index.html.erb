@@ -1,8 +1,9 @@
 
 
 <div class="col-lg-12">
-  <div class="title">
-  <h1>Are we mooning today?</h1>
+  <div class="title d-flex mr-2 mt-4 flex-row justify-content-between">
+  <h1>Are we mooning today? 🚀</h1>
+    <%= link_to "+Your Investments", investments_path, class: "btn-inv"%>
 </div>
 <div class="cards-border row m-2 d-flex justify-content-center">
   <% @top_10.each do |coin| %>
@@ -38,5 +39,10 @@
     </div>
   <% end %>
 </div>
+
+ <div class="note d-flex mr-2 mt-4 flex-row justify-content-end ">
+     <h6> PS: The Prices Shown are for the daily candle closes not the actual price! -sorry 😢 </h6>
+   </div>
+
 </div>
 

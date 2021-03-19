@@ -1,12 +1,14 @@
 <div class="container mt-3">
   <div class="row d-flex justify-content-center form-container">
     <div class="col-8 new-form">
-      <h1 class="text-center">Add a Transaction</h1>
+      <h1 class="title">What did you invest in?</h1>
         <%= simple_form_for(@investment) do |f| %>
-          <%= f.association :coin, placeholder: "Coin" %>
+          <%= f.association :coin, placeholder: "Coin", input_html: { class: "select2"} %>
           <%= f.input :coin_price, placeholder: "Price Bought at" , as: :float %>
           <%= f.input :quantity, placeholder: "Quantity", as: :float %>
-          <%= f.button :submit, "Add Transaction", class: "btn btn-success submit-button" %>
+          <div class="d-flex mr-2 mt-4 flex-row justify-content-center">
+          <%= f.button :submit, "Add Transaction", class: "btn-main" %>
+          </div>
         <% end %>
     </div>
   </div>

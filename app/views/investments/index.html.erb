@@ -7,6 +7,13 @@
   </div>
 
 
+  <% if @user_investments.empty? %>
+    <div class="d-flex justify-content-center mb-4">
+      <h1 class="no-invest"> No cryptoasset yet ! What are you waiting for to invest? 🦾</h1>
+    </div>
+  <% end %>
+
+
 
 
   <% @user_investments %>

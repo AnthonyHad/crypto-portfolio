@@ -14,3 +14,19 @@
   color: $text-white;
   font-size: 18px;
 }
+
+
+.btn-inv {
+border-style: solid;
+  border-color: transparent;
+  border-radius: 4px;
+  background-color: $secondary-orange;
+  color: $text-white;
+  text-decoration: none;
+  padding: 4px;
+  height: 38px;
+  &:hover {
+    text-decoration: none;
+    color: $main-blue;
+  }
+}
