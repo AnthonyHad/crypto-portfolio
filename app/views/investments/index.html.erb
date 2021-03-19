@@ -1,42 +1,53 @@
-<h1>Here are all your investments</h1>
-<h3> Happy HODL'ING !</h3>
 
 
-<div class= "d-flex justify-content-between">
-  <h2>Portfolio</h2>
-  <%= link_to "Add a transaction", new_investment_path %>
+<div class="col-lg-12">
+
+  <div class= "d-flex mr-2 mt-4 flex-row justify-content-end">
+    <%= link_to "+Add a transaction", new_investment_path, class: "btn-main"%>
+  </div>
+
+
+
+
+  <% @user_investments %>
+  <h3>Your Crypto Assets</h3>
+  <div class="cards-border">
+  <table class = "table">
+    <thead>
+      <tr>
+        <th scope="col" >Cryptocurrency</th>
+        <th scope="col">Closing Price</th>
+        <th scope="col">Holdings</th>
+        <th scope="col">Average Price Bought at</th>
+        <th scope="col">Profit/Loss</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%@user_investments.each do |key, value| %>
+      <tr class="cards-border-invest">
+        <th scope ="row"><%= key %> <%=value[:symbol] %></th>
+        <% total_quantity_owned = value[:quantity].sum  %>
+        <% average_price_bought_at = value[:total_invested] / total_quantity_owned %>
+        <td><%= "#{number_with_precision(value[:closing_price], precision: 2, :delimiter => ',')}$" %></td>
+        <td><%= "#{number_with_precision(value[:total_invested], precision: 1, :delimiter => ',')}$ #{number_with_precision(total_quantity_owned, precision: 5, :delimiter => ',')} #{value[:symbol]}" %></td>
+        <td><%= "#{number_with_precision(average_price_bought_at, precision: 1, :delimiter => ',')}$"%></td>
+        <% profit_percentage = ((value[:closing_price].to_f - average_price_bought_at) / average_price_bought_at) * 100  %>
+        <td><%=  profit_percentage.positive? ? "Up #{number_with_precision(profit_percentage.abs(), precision: 2, :delimiter => ",")}%" : "Down #{number_with_precision(profit_percentage.abs(), precision: 2, :delimiter => ',')}%" %></td>
+        <td><%= link_to investment_path(value[:coin_id]), title: "Transactions" do %>
+            <i class="fas fa-exchange-alt icon"></i>
+          <% end %>
+        </td>
+      </tr>
+     <% end %>
+   </tbody>
+  </table>
+  </div>
+
+   <div class="note d-flex mr-2 mt-4 flex-row justify-content-end ">
+     <h6> PS: Happy HODL'ING 😉 </h6>
+   </div>
 </div>
-
-
-<%= @user_investments %>
-<h3>Your Assets</h3>
-<table class = "table">
-  <thead>
-    <tr>
-      <th scope="col" >Name</th>
-      <th scope="col">Closing Price</th>
-      <th scope="col">Holdings</th>
-      <th scope="col">Average Price Bought at</th>
-      <th scope="col">Profit/Loss</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-    <%@user_investments.each do |key, value| %>
-      <th scope ="row"><%= key %></th>
-      <% total_quantity_owned = value[:quantity].sum  %>
-      <% average_price_bought_at = value[:total_invested] / total_quantity_owned %>
-      <td><%= "#{value[:closing_price].to_f.truncate(3)}$" %></td>
-      <td><%= "#{value[:total_invested]}$ #{total_quantity_owned} #{value[:symbol]}" %></td>
-      <td><%= "#{average_price_bought_at.truncate(3)}$"%></td>
-      <% profit_percentage = ((value[:closing_price].to_f - average_price_bought_at) / average_price_bought_at) * 100  %>
-      <td><%=  profit_percentage.positive? ? "Up #{profit_percentage.abs().truncate(2)}%" : "Down #{profit_percentage.abs().truncate(2)}%" %></td>
-      <td><%= link_to "Show Transactions", investment_path(value[:coin_id]) %></td>
-    </tr>
-   <% end %>
- </tbody>
-
 
 
 
