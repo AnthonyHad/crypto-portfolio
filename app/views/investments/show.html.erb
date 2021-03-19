@@ -1,5 +1,7 @@
 
-<table class = "table">
+<div class="col-lg-12">
+
+<table class = "table show">
   <thead>
     <tr>
       <th scope="col" >Date Bought at</th>
@@ -9,13 +11,25 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr class="cards-border-invest">
     <%@investment.each do |investment| %>
-      <%= name = investment.coin.name %>
-      <th scope ="row"><%= investment.created_at %></th>
-      <td><%= investment.coin_price %></td>
-      <td><%= investment.quantity %></td>
-      <td><%= link_to "Edit", edit_investment_path(investment.id)%> <%= link_to "Delete", investment_path(investment.id), method: :delete, data: { confirm: "Are you sure?"}%></td>
+      <h1 class="crypto-asset-name show-name"> <%= investment.coin.name %></h1>
+      <th scope ="row"><%= investment.created_at.strftime("%a, %B %d %T %P") %></th>
+      <td><%= "#{number_with_precision(investment.coin_price, precision: 2, :delimiter => ',')}$" %></td>
+      <td><%= "#{number_with_precision(investment.quantity, precision: 4, :delimiter => ',')} #{investment.coin.symbol}"%></td>
+      <td><%= link_to edit_investment_path(investment.id), title: "Edit Transaction" do%>
+          <i class="far fa-edit icon"></i>
+        <% end %>
+        <%= link_to investment_path(investment.id), method: :delete, data: { confirm: "Are you sure?"}, title: "Delete Transaction" do%>
+        <i class="far fa-trash-alt icon"></i>
+        <% end  %>
+      </td>
     </tr>
    <% end %>
  </tbody>
+</table>
+
+<div class="d-flex mr-2 mt-4 flex-row justify-content-center ">
+  <%= link_to "Back to Investments", investments_path, class: "btn-main"%>
+</div>
+ </div>

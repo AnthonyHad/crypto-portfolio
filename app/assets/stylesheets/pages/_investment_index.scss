@@ -1,0 +1,68 @@
+
+
+h3 {
+  font-family: $montserrat;
+  font-weight: bold;
+  color: $text-white;
+  font-size: 20px;
+}
+
+
+th {
+  font-family: $montserrat;
+  font-weight: bold;
+  color: $text-white;
+  font-size: 18px;
+}
+
+
+.crypto-asset-name {
+  font-family: $montserrat;
+  font-weight: bold;
+  color: $text-white;
+  font-size: 20px;
+}
+
+
+td {
+  font-family: $montserrat;
+  font-weight: bold;
+  color: $text-white;
+  font-size: 14px;
+}
+
+
+.cards-border-invest {
+  border-color: $main-blue;
+  border-radius: 8px;
+  border-style: solid;
+  padding: 16px;
+}
+
+
+.table th, .table td {
+    border-top: none;
+}
+
+
+.icon {
+  color: $secondary-orange;
+  font-size: 16px;
+}
+
+
+.note h6 {
+  color: $main-blue;
+  font-family: $raleway;
+  font-size:  12px;
+}
+
+
+.no-invest {
+  color: $secondary-orange;
+  font-size: 22px;
+  margin-top: 50px;
+  font-family: $raleway;
+  font-weight: bold;
+  font-size: 20px;
+}

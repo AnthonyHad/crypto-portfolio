@@ -1,1 +1,48 @@
-<h1>Coin Index!</h1>
+
+
+<div class="col-lg-12">
+  <div class="title d-flex mr-2 mt-4 flex-row justify-content-between">
+  <h1>Are we mooning today? 🚀</h1>
+    <%= link_to "+Your Investments", investments_path, class: "btn-inv"%>
+</div>
+<div class="cards-border row m-2 d-flex justify-content-center">
+  <% @top_10.each do |coin| %>
+    <div class="card d-flex flex-column justify-content-between col-4-auto mr-4 ml-4 mb-4">
+      <div class="card-main d-flex flex-column justify-content-center align-items-center">
+        <h1><%= coin.name %></h1>
+        <img src="" alt="">
+        <h2> <%= "#{number_with_precision(coin.close, precision: 2, :delimiter => ',')} $" %> </h2>
+      </div>
+
+      <div class="card-market d-flex justify-content-center align-items-center justify-content-around">
+        <div class="numbers d-flex flex-column align-items-center">
+          <p class="stats-title">Open</p>
+          <p class="stats"> <%= "#{number_with_precision(coin.open, precision: 2, :delimiter => ',')}$" %> </p>
+        </div>
+        <div class="numbers d-flex flex-column align-items-center">
+          <p class="stats-title">High</p>
+          <p class="stats"><%= "#{number_with_precision(coin.high, precision: 2, :delimiter => ',')}$" %></p>
+        </div>
+        <div class="numbers d-flex flex-column align-items-center">
+          <p class="stats-title">Low</p>
+          <p class="stats"><%= "#{number_with_precision(coin.low, precision: 2, :delimiter => ',')}$" %></p>
+        </div>
+        <div class="numbers d-flex flex-column align-items-center">
+          <p class="stats-title">Volume</p>
+          <p class="stats"><%= "#{number_with_precision(coin.volume, :precision => 0, :delimiter => ',')}$"%></p>
+        </div>
+        <div class="numbers d-flex flex-column align-items-center">
+          <p class="stats-title">Market Cap</p>
+          <p class="stats"><%= "#{number_with_precision(coin.market_cap, :precision => 0, :delimiter => ',')}$" %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+ <div class="note d-flex mr-2 mt-4 flex-row justify-content-end ">
+     <h6> PS: The Prices Shown are for the daily candle closes not the actual price! -sorry 😢 </h6>
+   </div>
+
+</div>
+
