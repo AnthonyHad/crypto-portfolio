@@ -1,4 +1,5 @@
 class CoinsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
   def index
     @coins = Coin.all
     @top_10 = Coin.find_top_ten
