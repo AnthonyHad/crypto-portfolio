@@ -65,3 +65,23 @@
   border: none;
   border-radius: 10px;
 }
+
+
+.form-control {
+    border: none;
+    border-radius: 10px;
+    background-color: $background-color;
+    color: $text-white;
+    &:focus {
+      background-color:$background-color;
+      border-style: solid;
+      border-color: $secondary-orange;
+      border-width: 2px;
+    }
+}
+
+.simple_form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
