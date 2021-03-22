@@ -18,6 +18,26 @@
    }
 }
 
+.form-container-add {
+  background-color: $main-blue;
+  border-radius: 24px;
+  border-style: solid;
+  border-color: $secondary-orange;
+  border-width: 2px;
+  padding: 48px;
+}
+
+
+.new-form-add {
+  border-radius: 10px;
+    .form-control {
+    border: none;
+    border-radius: 10px;
+    background-color: $background-color;
+    color: $text-white;
+   }
+
+}
 
 .form-dropdown {
   background-color: $main-blue;

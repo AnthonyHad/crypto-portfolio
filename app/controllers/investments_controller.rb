@@ -1,3 +1,6 @@
+require 'json'
+require 'open-uri'
+
 class InvestmentsController < ApplicationController
 
   def index
@@ -21,6 +24,7 @@ class InvestmentsController < ApplicationController
     @investment = Investment.new(investment_params)
     @investment.user = current_user
     if @investment.save
+      update_coin_data(@investment)
       redirect_to investments_path, notice: "Transaction Successfully added!"
     else
       render :new
@@ -84,6 +88,26 @@ class InvestmentsController < ApplicationController
         end
       end
   return @user_investments
+  end
+
+
+
+def update_coin_data(investment)
+
+  coin_id = investment.coin.api_id
+
+  url = "https://api.coinpaprika.com/v1/coins/#{coin_id}/ohlcv/latest/"
+  serialized = open(url).read
+  parsed = JSON.parse(serialized)
+
+    investment.coin.update(
+      open: parsed[0]["open"],
+      close: parsed[0]["close"],
+      high: parsed[0]["high"],
+      low: parsed[0]["low"],
+      volume: parsed[0]["volume"],
+      market_cap: parsed[0]["market_cap"]
+      )
   end
 end
 

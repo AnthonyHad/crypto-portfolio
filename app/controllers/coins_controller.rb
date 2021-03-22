@@ -25,4 +25,5 @@ class CoinsController < ApplicationController
   def coin_params
     params.require(:coin).permit(:name, :open, :close, :high, :low, :volume, :market_cap)
   end
+
 end

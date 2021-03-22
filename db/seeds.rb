@@ -93,6 +93,8 @@ def update_top_10_market_data
       market_cap: data[0]["market_cap"]
       )
   end
+
+
   puts "Top 10 coins market data updated"
 end
 
