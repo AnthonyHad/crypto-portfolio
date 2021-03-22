@@ -9,13 +9,10 @@
 
 
 .new-form {
-  border-radius: 10px;
-    .form-control {
     border: none;
     border-radius: 10px;
     background-color: $background-color;
     color: $text-white;
-   }
 }
 
 .form-container-add {
@@ -25,6 +22,7 @@
   border-color: $secondary-orange;
   border-width: 2px;
   padding: 48px;
+  width: 600px;
 }
 
 
@@ -35,6 +33,7 @@
     border-radius: 10px;
     background-color: $background-color;
     color: $text-white;
+    width: 150%;
    }
 
 }
@@ -101,7 +100,7 @@
 }
 
 .simple_form {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  width: 50%;
+  // display: flex;
+  // justify-content: center;
 }
