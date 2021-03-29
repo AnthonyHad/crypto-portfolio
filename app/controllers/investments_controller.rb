@@ -11,6 +11,9 @@ class InvestmentsController < ApplicationController
 
   def show
     @investment = Investment.where(coin_id: params[:coin_id])
+      @investment.each do |investment|
+        return @coin_name = investment.coin.name
+      end
     if @investment.empty?
       redirect_to investments_path
     end

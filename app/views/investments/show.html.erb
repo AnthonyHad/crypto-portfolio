@@ -12,8 +12,9 @@
   </thead>
   <tbody>
     <tr class="cards-border-invest">
+    <h1 class="crypto-asset-name show-name"> <%= @coin_name %></h1>
     <%@investment.each do |investment| %>
-      <h1 class="crypto-asset-name show-name"> <%= investment.coin.name %></h1>
+      <% c_name = investment.coin.name %>
       <th scope ="row"><%= investment.created_at.strftime("%a, %B %d %T %P") %></th>
       <td><%= "#{number_with_precision(investment.coin_price, precision: 2, :delimiter => ',')}$" %></td>
       <td><%= "#{number_with_precision(investment.quantity, precision: 4, :delimiter => ',')} #{investment.coin.symbol}"%></td>
