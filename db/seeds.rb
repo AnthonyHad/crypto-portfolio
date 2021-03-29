@@ -5,7 +5,7 @@ def get_active_coins
   # Fetch the data and parse it to JSON
   url = 'https://api.coinpaprika.com/v1/coins'
   # Opens the file and reads it to get the data as a string
-  serialized = open(url).read
+  serialized = URI.open(url).read
   # Parses data into an array class
   parsed = JSON.parse(serialized)
 
@@ -73,7 +73,7 @@ end
 
 def get_latest_OHLC(coin_id)
   url = "https://api.coinpaprika.com/v1/coins/#{coin_id}/ohlcv/latest/"
-  serialized = open(url).read
+  serialized = URI.open(url).read
   parsed = JSON.parse(serialized)
   return parsed
 end

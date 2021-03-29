@@ -22,7 +22,7 @@ class Coin < ApplicationRecord
   end
 
   def self.find_top_ten
-    coins = Coin.all
+    coins = Coin.where(rank: 1..10)
     top_10 = []
 
     coins.each do |coin|

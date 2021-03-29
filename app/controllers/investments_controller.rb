@@ -97,7 +97,7 @@ def update_coin_data(investment)
   coin_id = investment.coin.api_id
 
   url = "https://api.coinpaprika.com/v1/coins/#{coin_id}/ohlcv/latest/"
-  serialized = open(url).read
+  serialized = URI.open(url).read
   parsed = JSON.parse(serialized)
 
     investment.coin.update(
