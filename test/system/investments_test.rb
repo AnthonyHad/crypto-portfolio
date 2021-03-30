@@ -16,7 +16,7 @@ class InvestmentsTest < ApplicationSystemTestCase
     click_on 'Add Transaction'
 
 
-    assert_selector "h3", text: "Your Crypto Assets"
+    assert_selector "h3", text: "Your Crypto Assets🪙"
 
   end
 end
