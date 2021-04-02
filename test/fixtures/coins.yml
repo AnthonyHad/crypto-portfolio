@@ -1,0 +1,12 @@
+Bitcoin:
+  name: "Bitcoin"
+  open: 58844.09593703
+  close: 58794.30628735
+  high: 59448.41910446
+  low: 58304.85815273
+  volume: 54080656961.0
+  market_cap: 1098626979720.0
+  api_id: "btc-bitcoin"
+  symbol: "BTC"
+  coin_type: "coin"
+  rank: 1
