@@ -37,19 +37,26 @@ class Coin < ApplicationRecord
 
   def self.update_top_10_market_data
   top_10 = Coin.find_top_ten
+    top_10.each do |coin|
+      data = get_latest_OHLC(coin.api_id)
 
-  top_10.each do |coin|
-    data = get_latest_OHLC(coin.api_id)
-
-    coin.update(
-      open: data[0]["open"],
-      close: data[0]["close"],
-      high: data[0]["high"],
-      low: data[0]["low"],
-      volume: data[0]["volume"],
-      market_cap: data[0]["market_cap"]
-      )
+      coin.update(
+        open: data[0]["open"],
+        close: data[0]["close"],
+        high: data[0]["high"],
+        low: data[0]["low"],
+        volume: data[0]["volume"],
+        market_cap: data[0]["market_cap"]
+        )
+    end
   end
-end
 
+  private
+
+  def get_latest_OHLC(coin_id)
+    url = "https://api.coinpaprika.com/v1/coins/#{coin_id}/ohlcv/latest/"
+    serialized = URI.open(url).read
+    parsed = JSON.parse(serialized)
+    return parsed
+  end
 end
