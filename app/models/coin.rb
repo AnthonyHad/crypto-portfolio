@@ -34,4 +34,20 @@ class Coin < ApplicationRecord
     end
     return top_10
   end
+
+  def self.update_top_10_market_data
+  top_10 = Coin.find_top_ten
+
+  top_10.each do |coin|
+    data = get_latest_OHLC(coin.api_id)
+
+    coin.update(
+      open: data[0]["open"],
+      close: data[0]["close"],
+      high: data[0]["high"],
+      low: data[0]["low"],
+      volume: data[0]["volume"],
+      market_cap: data[0]["market_cap"]
+      )
+  end
 end
