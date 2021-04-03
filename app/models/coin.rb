@@ -35,7 +35,7 @@ class Coin < ApplicationRecord
     return top_10
   end
 
-  def update_top_10_market_data
+  def self.update_top_10_market_data
   top_10 = Coin.find_top_ten
     top_10.each do |coin|
       data = get_latest_OHLC(coin.api_id)
