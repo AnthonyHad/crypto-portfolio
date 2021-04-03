@@ -10,3 +10,57 @@ Bitcoin:
   symbol: "BTC"
   coin_type: "coin"
   rank: 1
+
+Ethereum:
+  name: "Ethereum"
+  open: 58844.09593703
+  close: 58794.30628735
+  high: 59448.41910446
+  low: 58304.85815273
+  volume: 54080656961.0
+  market_cap: 1098626979720.0
+  api_id: "eth-ethereum"
+  symbol: "ETH"
+  coin_type: "coin"
+  rank: 2
+
+Litecoin:
+  name: "Litecoin"
+  open: 58844.09593703
+  close: 58794.30628735
+  high: 59448.41910446
+  low: 58304.85815273
+  volume: 54080656961.0
+  market_cap: 1098626979720.0
+  api_id: "litc-litecoin"
+  symbol: "LTC"
+  coin_type: "coin"
+  rank: 3
+
+Tether:
+  name: "Tether"
+  open: 58844.09593703
+  close: 58794.30628735
+  high: 59448.41910446
+  low: 58304.85815273
+  volume: 54080656961.0
+  market_cap: 1098626979720.0
+  api_id: "usdt-tether"
+  symbol: "USDT"
+  coin_type: "coin"
+  rank: 4
+
+Polkadot:
+  name: "Polkadot"
+  open: 58844.09593703
+  close: 58794.30628735
+  high: 59448.41910446
+  low: 58304.85815273
+  volume: 54080656961.0
+  market_cap: 1098626979720.0
+  api_id: "dot-polkadot"
+  symbol: "DOT"
+  coin_type: "coin"
+  rank: 5
+
+

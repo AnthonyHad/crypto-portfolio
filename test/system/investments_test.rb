@@ -23,7 +23,7 @@ class InvestmentsTest < ApplicationSystemTestCase
   end
 
 
-  test "can create edit a new investment" do
+  test "can create and edit an investment" do
     login_as users(:anthony)
     visit investments_url
     click_on '+Add a transaction'
@@ -41,7 +41,7 @@ class InvestmentsTest < ApplicationSystemTestCase
     assert_selector "td", text: "30,000.00$"
   end
 
-  test "can  delete an investment" do
+  test "can delete an investment" do
     login_as users(:anthony)
     visit investments_url
     click_on '+Add a transaction'
