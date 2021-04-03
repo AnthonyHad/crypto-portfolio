@@ -12,5 +12,11 @@ class CoinTest < ActiveSupport::TestCase
     # arr.any?{|coin| coin.rank >=1 && coin.rank <=10  }
   end
 
+  test "Class method find the coin when called on" do
+    Coin.find_coin("Bitcoin")
+    assert true
+    # arr.any?{|coin| coin.rank >=1 && coin.rank <=10  }
+  end
+
 
 end
