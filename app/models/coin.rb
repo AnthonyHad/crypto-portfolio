@@ -52,7 +52,7 @@ class Coin < ApplicationRecord
   end
 
 
-  def get_latest_OHLC(coin_id)
+  def self.get_latest_OHLC(coin_id)
     url = "https://api.coinpaprika.com/v1/coins/#{coin_id}/ohlcv/latest/"
     serialized = URI.open(url).read
     parsed = JSON.parse(serialized)
