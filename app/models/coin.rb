@@ -51,3 +51,5 @@ class Coin < ApplicationRecord
       )
   end
 end
+
+end
