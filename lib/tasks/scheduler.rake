@@ -7,7 +7,7 @@ task :update_top_10 => :environment do
 end
 
 
-ask :update_user_investments => :environment do
+task :update_user_investments => :environment do
   puts "Updating Investments..."
   Investment.update_coin_data
   puts "done."
