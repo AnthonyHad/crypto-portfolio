@@ -10,7 +10,7 @@ class Investment < ApplicationRecord
   def self.update_coin_data
   investments = Investment.all
   investments.each do |investment|
-    url = "https://api.coinpaprika.com/v1/coins/#{investment.coin_id}/ohlcv/latest/"
+    url = "https://api.coinpaprika.com/v1/coins/#{investment.coin.api_id}/ohlcv/latest/"
     serialized = URI.open(url).read
     parsed = JSON.parse(serialized)
 
