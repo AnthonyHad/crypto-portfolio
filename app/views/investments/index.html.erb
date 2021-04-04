@@ -38,10 +38,10 @@
         <th scope ="row"><%= key %> <%=value[:symbol] %></th>
         <% total_quantity_owned = value[:quantity].sum  %>
         <% average_price_bought_at = value[:total_invested] / total_quantity_owned %>
-        <td><%= "#{number_with_precision(value[:closing_price], precision: 2, :delimiter => ',')}$" %></td>
+        <td class="closing-price"><%= "#{number_with_precision(value[:closing_price], precision: 2, :delimiter => ',')}$" %></td>
         <td><%= "#{number_with_precision(value[:total_invested], precision: 1, :delimiter => ',')}$" %></td>
         <td><%= " #{number_with_precision(total_quantity_owned, precision: 5, :delimiter => ',')} #{value[:symbol]}" %></td>
-        <td><%= "#{number_with_precision(average_price_bought_at, precision: 1, :delimiter => ',')}$"%></td>
+        <td class="bought-price"><%= "#{number_with_precision(average_price_bought_at, precision: 1, :delimiter => ',')}$"%></td>
         <% profit_percentage = ((value[:closing_price].to_f / average_price_bought_at)) %>
         <% dollar_gains = (total_quantity_owned * (value[:closing_price].to_f - average_price_bought_at)) %>
         <td><%=  profit_percentage > 1 ? "+ #{number_with_precision(profit_percentage.abs() * 100, precision: 2, :delimiter => ",")}%" : "- #{number_with_precision(profit_percentage.abs() * 100, precision: 2, :delimiter => ',')}%" %></td>
