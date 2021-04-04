@@ -5,6 +5,7 @@ class Investment < ApplicationRecord
   belongs_to :user
   belongs_to :coin
 
+  validates :coin_price, :quantity, presence: true
 
 
   def self.update_coin_data
