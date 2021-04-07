@@ -24,7 +24,7 @@
       <tr>
         <th scope="col" >Cryptocurrency</th>
         <th scope="col">Closing Price</th>
-        <th scope="col">Total Invested($)</th>
+        <th scope="col">Invested($)</th>
         <th scope="col">Coin Holdings</th>
         <th scope="col">Average Price Bought at</th>
         <th scope="col">Profit/Loss(%)</th>
@@ -33,8 +33,11 @@
       </tr>
     </thead>
     <tbody>
+      <% sum_inv = 0 %>
+      <% sum_gains = 0 %>
       <%@user_investments.each do |key, value| %>
       <tr class="cards-border-invest">
+        <% sum_inv += value[:total_invested] %>
         <th scope ="row"><%= key %> <%=value[:symbol] %></th>
         <% total_quantity_owned = value[:quantity].sum  %>
         <% average_price_bought_at = value[:total_invested] / total_quantity_owned %>
@@ -44,6 +47,7 @@
         <td class="bought-price"><%= "#{number_with_precision(average_price_bought_at, precision: 1, :delimiter => ',')}$"%></td>
         <% profit_percentage = ((value[:closing_price].to_f / average_price_bought_at)) %>
         <% dollar_gains = (total_quantity_owned * (value[:closing_price].to_f - average_price_bought_at)) %>
+        <% sum_gains += dollar_gains %>
         <td><%=  profit_percentage > 1 ? "+ #{number_with_precision(profit_percentage.abs() * 100, precision: 2, :delimiter => ",")}%" : "- #{number_with_precision(profit_percentage.abs() * 100, precision: 2, :delimiter => ',')}%" %></td>
         <td><%=  profit_percentage > 1 ? "🚀 #{number_with_precision(dollar_gains.abs(), precision: 2, :delimiter => ",")}$" : "😭 #{number_with_precision(dollar_gains.abs(), precision: 2, :delimiter => ",")}$" %></td>
         <td><%= link_to investment_path(value[:coin_id]), title: "Transactions" do %>
@@ -54,6 +58,23 @@
      <% end %>
    </tbody>
   </table>
+  </div>
+
+  <div class="d-flex justify-content-center">
+  <div class="cards-border-total mt-4 ">
+    <table class = "table">
+    <thead>
+      <tr>
+        <th scope="col" class="summation" >Total Invested($)</th>
+        <th scope="col" class="summation">Total Profits($)</th>
+      </tr>
+    </thead>
+    <tbody>
+        <td><%= "#{number_with_precision(sum_inv, precision: 1, :delimiter => ',')}$"  %></td>
+        <td><%="#{number_with_precision(sum_gains, precision: 1, :delimiter => ',')}$"  %></td>
+    </tbody>
+    </table>
+  </div>
   </div>
 
    <div class="note d-flex mr-2 mt-4 flex-row justify-content-end ">

@@ -74,3 +74,18 @@ td {
 .bought-price {
   color: $secondary-orange;
 }
+
+.cards-border-total {
+  width: 350px;
+  border-color: $secondary-orange;
+  border-radius: 8px;
+  border-width: 2px;
+  border-style: solid;
+  padding: 12px;
+  height: 20%;
+
+}
+
+.summation {
+  font-size: 14px;
+}
