@@ -37,7 +37,8 @@ class InvestmentsTest < ApplicationSystemTestCase
     find('.fa-edit ').click
     fill_in 'Coin price', with: '30000'
     fill_in 'Quantity', with: '3'
-    click_on 'Add Transaction'
+    # save_and_open_screenshot
+    click_on 'Update'
     assert_selector "td", text: "30,000.00$"
   end
 
